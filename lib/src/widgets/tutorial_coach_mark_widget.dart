@@ -52,7 +52,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
   final Tween<double>? pulseVariation;
   final bool pulseEnable;
   final Widget? skipWidget;
-  int index;
+  Function(int) index;
 
   @override
   TutorialCoachMarkWidgetState createState() => TutorialCoachMarkWidgetState();
@@ -93,10 +93,10 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
               return widget.clickOverlay?.call(target);
             },
             focus: (target) {
+              widget.index(widget.targets.indexWhere(
+                  (element) => element.keyTarget == target.keyTarget));
               setState(() {
                 currentTarget = target;
-                widget.index = widget.targets.indexWhere(
-                    (element) => element.keyTarget == target.keyTarget);
                 showContent = true;
               });
             },
