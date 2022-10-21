@@ -249,7 +249,7 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
   }
 
   int get currentIndex => widget.targets
-      .indexWhere((element) => element.keyTarget == currentTarget.keyTarget);
+      .indexWhere((element) => element.keyTarget == currentTarget!.keyTarget);
 
   void skip() => widget.onClickSkip?.call();
 
