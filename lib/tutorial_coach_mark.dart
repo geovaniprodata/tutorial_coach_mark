@@ -103,6 +103,8 @@ class TutorialCoachMark {
     _removeOverlay();
   }
 
+  // int get currentIndex => _widgetKey.currentState.
+
   bool get isShowing => _overlayEntry != null;
 
   void next() => _widgetKey.currentState?.next();
