@@ -7,9 +7,10 @@ import 'package:tutorial_coach_mark/src/util.dart';
 import 'package:tutorial_coach_mark/src/widgets/animated_focus_light.dart';
 
 class TutorialCoachMarkWidget extends StatefulWidget {
-  const TutorialCoachMarkWidget({
+  TutorialCoachMarkWidget({
     Key? key,
     required this.targets,
+    required this.index,
     this.finish,
     this.paddingFocus = 10,
     this.clickTarget,
@@ -51,6 +52,7 @@ class TutorialCoachMarkWidget extends StatefulWidget {
   final Tween<double>? pulseVariation;
   final bool pulseEnable;
   final Widget? skipWidget;
+  int index;
 
   @override
   TutorialCoachMarkWidgetState createState() => TutorialCoachMarkWidgetState();
@@ -93,6 +95,8 @@ class TutorialCoachMarkWidgetState extends State<TutorialCoachMarkWidget>
             focus: (target) {
               setState(() {
                 currentTarget = target;
+                widget.index = widget.targets.indexWhere(
+                    (element) => element.keyTarget == target.keyTarget);
                 showContent = true;
               });
             },

@@ -219,6 +219,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void createTutorial() {
     tutorialCoachMark = TutorialCoachMark(
+      index: 0,
       targets: _createTargets(),
       colorShadow: Colors.red,
       textSkip: "SKIP",

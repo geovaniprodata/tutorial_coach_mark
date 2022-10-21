@@ -32,11 +32,13 @@ class TutorialCoachMark {
   final Duration pulseAnimationDuration;
   final bool pulseEnable;
   final Widget? skipWidget;
+  int index;
 
   OverlayEntry? _overlayEntry;
 
   TutorialCoachMark({
     required this.targets,
+    required this.index,
     this.colorShadow = Colors.black,
     this.onClickTarget,
     this.onClickTargetWithTapPosition,
@@ -61,6 +63,7 @@ class TutorialCoachMark {
       builder: (context) {
         return TutorialCoachMarkWidget(
           key: _widgetKey,
+          index: index,
           targets: targets,
           clickTarget: onClickTarget,
           onClickTargetWithTapPosition: onClickTargetWithTapPosition,
@@ -103,7 +106,7 @@ class TutorialCoachMark {
     _removeOverlay();
   }
 
-  int get currentIndex => _widgetKey.currentState!.currentIndex;
+  int get currentIndex => index;
 
   bool get isShowing => _overlayEntry != null;
 
